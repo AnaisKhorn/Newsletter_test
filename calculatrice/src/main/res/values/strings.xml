@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Calculatrice</string>
+    <string name="_un">1</string>
+    <string name="_deux">2</string>
+    <string name="_egal">=</string>
+    <string name="_trois">3</string>
+    <string name="_quatre">4</string>
+    <string name="_cinq">5</string>
+    <string name="_six">6</string>
+    <string name="_sept">7</string>
+    <string name="_huit">8</string>
+    <string name="_neuf">9</string>
+    <string name="_div">/</string>
+    <string name="_plus">+</string>
+    <string name="_moins">-</string>
+    <string name="_multi">*</string>
+</resources>
