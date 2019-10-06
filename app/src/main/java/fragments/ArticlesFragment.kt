@@ -16,12 +16,6 @@ import kotlinx.coroutines.withContext
 import networks.ArticleRepository
 
 class ArticlesFragment : Fragment() {
-    lateinit var planetes: Array<String>
-    lateinit var spinner: Spinner
-    lateinit var adapter: SpinnerAdapter
-    lateinit var recyclerView: RecyclerView
-    lateinit var adapterRecycler: ArticleAdapter
-    private val repository = ArticleRepository()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_articles, container, false)
@@ -30,9 +24,9 @@ class ArticlesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        planetes = resources.getStringArray(R.array.planetes)
-        spinner  = view.findViewById(R.id.spinner_frag)
-        adapter = ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_item,planetes)
+        var planetes = resources.getStringArray(R.array.planetes)
+        val spinner : Spinner  = view.findViewById(R.id.spinner_frag)
+        val adapter = ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_item, planetes)
 
         spinner.adapter = adapter
 
@@ -44,17 +38,18 @@ class ArticlesFragment : Fragment() {
             }
         }
 
-        recyclerView = view.findViewById(R.id.recycler)
+        val recyclerView : RecyclerView = view.findViewById(R.id.recycler)
+
         val articles = listOf<Article>(Article("coucou" ,"c'est moi"), Article("test", "testezifdjujferjfi_edzsçjfzefoij_rueijfezjiofds"),
-            Article("cc", "cc"), Article("ff", "ff")
-        )
-        adapterRecycler = ArticleAdapter(articles)
+            Article("cc", "cc"), Article("ff", "ff"))
+
+        val adapterRecycler = ArticleAdapter(articles)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapterRecycler
 
     }
 
-
+/*
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         GlobalScope.launch {
@@ -71,7 +66,7 @@ class ArticlesFragment : Fragment() {
 
     private suspend fun bindData(result: List<Article>) {
         withContext(Dispatchers.Main) {}
-    }
+    } */
 }
 
 
